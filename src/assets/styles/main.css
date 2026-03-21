@@ -1,0 +1,70 @@
+/* ===========================
+   Global Word-Break Rules
+=========================== */
+* {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h3,
+h4,
+h5 {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+/* ===========================
+   Body & Base Styles
+=========================== */
+body {
+  font-family: 'Poppins', 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: #0b1e3a; /* Dark blue background */
+  background: #f5f6f8; /* light gray like design */
+}
+
+a {
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+/* ===========================
+   Headings
+=========================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+/* ===========================
+   Images
+=========================== */
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+/* ===========================
+   Lists
+=========================== */
+ul,
+ol {
+  padding-left: 1.5em;
+  margin-bottom: 1em;
+}
