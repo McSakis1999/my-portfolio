@@ -24,7 +24,8 @@ export default {
 
 <style scoped>
 .layout {
-  background: #f5f6f8; /* light gray like design */
+  background: #070f1e; /* light gray like design */
+  color: #c8d8f0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -34,7 +35,7 @@ export default {
   display: flex;
   flex-direction: column;
   flex: 1;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   width: 100%;
   padding: 2rem 1rem;
