@@ -13,3 +13,8 @@ Career source: `src/data/career.ts`. Greek career translations, names, and route
 Original Vue source and hobby edits are preserved in `archive/vue/`. Coin images are in `archive/private/images/`. Neither folder is served or included in the build. Hobby routes are disabled. Deploy only `dist/`, never the repository root. Keep the repository private if the archive should remain private.
 
 The preparation site uses `noindex, nofollow`; this discourages indexing but does not restrict access if deployed. No deployment was performed. Configure the final site URL and remove noindex before public launch. Add current technologies and recent project case studies as they are documented.
+
+## GitHub Pages
+
+Configured for https://mcsakis1999.github.io/my-portfolio/. Internal links and assets use Astro BASE_URL. The existing Actions workflow builds and deploys dist on pushes to master, or a manual workflow run. In repository Settings > Pages, choose GitHub Actions as the source. Local preview is now at http://localhost:4321/my-portfolio/. For a custom domain, update site and remove base.
+

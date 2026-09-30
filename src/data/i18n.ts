@@ -2,7 +2,8 @@ import { experience, earlierProjects, skillGroups } from './career';
 export type Lang = 'el' | 'en';
 export const pageKeys = ['home', 'projects', 'experience', 'skills', 'about', 'contact'] as const;
 export type Page = typeof pageKeys[number];
-export const href = (lang: Lang, page: Page) => `${lang === 'en' ? '/en' : ''}/${page === 'home' ? '' : page + '/'}`;
+export const asset = (path: string) => `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${path.replace(/^\//, '')}`;
+export const href = (lang: Lang, page: Page) => asset(`${lang === 'en' ? 'en/' : ''}${page === 'home' ? '' : page + '/'}`);
 export const names = { el: 'Θανάσης Μητσικώστας', en: 'Thanasis Mitsikostas' };
 export const labels = {
   el: { home: 'Αρχική', projects: 'Έργα', experience: 'Εμπειρία', skills: 'Δεξιότητες', about: 'Σχετικά', contact: 'Επικοινωνία' },
