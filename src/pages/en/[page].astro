@@ -1,0 +1,7 @@
+---
+import PortfolioPage from '../../components/PortfolioPage.astro';
+import { pageKeys } from '../../data/i18n';
+export function getStaticPaths() { return pageKeys.filter(page => page !== 'home').map(page => ({params:{page},props:{page}})); }
+const { page } = Astro.props;
+---
+<PortfolioPage lang="en" page={page} />

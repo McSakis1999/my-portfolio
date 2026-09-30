@@ -1,0 +1,17 @@
+---
+import '../styles/global.css';
+import { profile, socials } from '../data/portfolio';
+import { href, names, labels, type Lang, type Page } from '../data/i18n';
+interface Props { title?: string; description?: string; lang?: Lang; page?: Page; }
+const { lang = 'el', page = 'home', title = labels[lang][page], description = lang === 'el' ? 'Το επαγγελματικό portfolio του Θανάση Μητσικώστα: ανάπτυξη λογισμικού, έργα και εμπειρία.' : 'Thanasis Mitsikostas’s professional portfolio: software engineering, projects, and experience.' } = Astro.props;
+const t = (el: string, en: string) => lang === 'el' ? el : en;
+---
+<!doctype html>
+<html lang={lang}>
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content={description} /><meta name="robots" content="noindex, nofollow" /><link rel="icon" href="/favicon.ico" /><link rel="alternate" hreflang="el" href={href('el', page)} /><link rel="alternate" hreflang="en" href={href('en', page)} /><link rel="alternate" hreflang="x-default" href={href('el', page)} /><title>{title} · {names[lang]}</title></head>
+<body>
+<a class="skip" href="#main">{t('Μετάβαση στο περιεχόμενο', 'Skip to content')}</a>
+<header class="wrap"><a class="brand" href={href(lang, 'home')} aria-label={t('MitsikostasTech αρχική', 'MitsikostasTech home')}><img src="/brand/logo-full.png" alt="MitsikostasTech" width="1004" height="243" /></a><nav aria-label={t('Κύρια πλοήγηση', 'Main navigation')}>{(['home','projects','experience','skills','about'] as Page[]).map(key => <a href={href(lang,key)} aria-current={page === key ? 'page' : undefined}>{labels[lang][key]}</a>)}</nav><div class="header-actions"><div class="language-switch" role="group" aria-label={t('Γλώσσα', 'Language')}>{(['el','en'] as Lang[]).map(l => <a href={href(l,page)} lang={l} hreflang={l} aria-label={l === 'el' ? 'Ελληνικά' : 'English'} aria-current={lang === l ? 'true' : undefined}>{l === 'el' ? 'ΕΛ' : 'EN'}</a>)}</div><a class="contact" href={href(lang,'contact')}>{t('Ας μιλήσουμε', 'Let’s talk')} ↗</a></div></header>
+<main id="main"><slot /></main>
+<footer class="wrap"><div class="footer-main"><a class="footer-brand" href={href(lang,'home')} aria-label="MitsikostasTech"><img src="/brand/logo.png" alt="" width="275" height="275" /></a><span>© {new Date().getFullYear()} {names[lang]}</span><a href={`mailto:${profile.email}`}>{profile.email}</a></div><nav class="social-links" aria-label={t('Κοινωνικά δίκτυα', 'Social links')}>{socials.map(s => <a href={s.url} target="_blank" rel="noopener noreferrer">{s.label} ↗</a>)}</nav></footer>
+</body></html>

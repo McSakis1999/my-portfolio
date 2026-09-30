@@ -1,38 +1,15 @@
-# portfolio
+# Professional portfolio
 
-This template should help get you started developing with Vue 3 in Vite.
+Bilingual Astro portfolio for Thanasis Mitsikostas (Θανάσης Μητσικώστας).
+Greek is the default at `/`; English lives at `/en/`. Every page has an equivalent in each language. Language links preserve the selected page.
 
-## Recommended IDE Setup
+Run `npm install`, `npm run dev`, `npm run build`, or `npm run preview`. Use Node 22.19+.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Shared page layout and translated copy: `src/components/PortfolioPage.astro`.
+Career source: `src/data/career.ts`. Greek career translations, names, and routes: `src/data/i18n.ts`. Email and social links: `src/data/portfolio.ts`.
 
-## Recommended Browser Setup
+## Private material
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+Original Vue source and hobby edits are preserved in `archive/vue/`. Coin images are in `archive/private/images/`. Neither folder is served or included in the build. Hobby routes are disabled. Deploy only `dist/`, never the repository root. Keep the repository private if the archive should remain private.
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+The preparation site uses `noindex, nofollow`; this discourages indexing but does not restrict access if deployed. No deployment was performed. Configure the final site URL and remove noindex before public launch. Add current technologies and recent project case studies as they are documented.
