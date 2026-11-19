@@ -4,9 +4,9 @@ export const experience = [
     company: 'AIPath', role: 'Lead Frontend Developer', period: 'September 2023 – Present', current: true,
     summary: 'Leading frontend development for enterprise web and mobile applications, with ownership of frontend architecture and implementation.',
     bullets: [
-      'Responsible for the frontend area, from project architecture to development across web and mobile applications.',
+      'Responsible for frontend architecture and development across web and mobile applications.',
       'Mentored two trainees during my time at AIPath, guiding their work and development.',
-      'Work within an enterprise software engineering company focused on business operating systems, web and mobile applications, automation, and practical AI.',
+      'Develop software that helps businesses manage their operations, using automation and artificial intelligence.',
     ],
   },
   {
@@ -26,7 +26,7 @@ export const experience = [
 export const earlierProjects = [
   { title: 'Digital inclusion through gamification', period: 'October – November 2021 · EU-funded project', text: 'Contributed to DInSAd (Digital Inclusion of Low Skilled Adult People), researching, designing, and implementing a gamified website to help older adults learn to use internet technologies. Collaborated with European project partners through regular video meetings.' },
   { title: 'Interactive learning & gamification tools', period: 'October – November 2021 · EU-funded project', text: 'Researched and tested tools for interactive learning content and gamification compatible with learning and content management systems. Presented findings to European partners for the IO2 and IO3 deliverables.' },
-  { title: 'Flutter application & learning material', period: '2023 · University thesis', text: 'Developed a Flutter application and a series of lessons that used the application as an evolving teaching example.' },
+  { title: 'Flutter application & learning material', period: '2023 · University thesis', text: 'Developed a Flutter application and a series of lessons explaining how to build it step by step.' },
 ];
 export const skillGroups = [
   { title: 'Frontend leadership', context: 'Current role at AIPath', skills: ['Frontend architecture', 'Web & mobile development', 'Frontend ownership', 'Trainee mentoring'] },

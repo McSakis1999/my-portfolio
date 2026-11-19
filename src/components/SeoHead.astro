@@ -1,0 +1,35 @@
+---
+import { seo, absolute, pageUrl, shareImage } from '../data/seo';
+import { asset, type Lang, type Page } from '../data/i18n';
+import { profile, socials } from '../data/portfolio';
+interface Props { lang: Lang; page: Page; title?: string; description?: string; noindex?: boolean; }
+const { lang, page, noindex = false } = Astro.props;
+const title = Astro.props.title ?? seo[lang][page].title;
+const description = Astro.props.description ?? seo[lang][page].description;
+const canonical = noindex ? absolute(Astro.url.pathname) : pageUrl(lang,page);
+const root = pageUrl('el','home');
+const personId = `${root}#person`;
+const graph = [
+ {'@type':'Person','@id':personId,name:lang==='el'?'Θανάσης Μητσικώστας':'Thanasis Mitsikostas',alternateName:['Αθανάσιος Μητσικώστας','Θανάσης Μητσικώστας','Σάκης Μητσικώστας','Athanasios Mitsikostas','Thanasis Mitsikostas','Sakis Mitsikostas'],givenName:lang==='el'?'Αθανάσιος':'Athanasios',familyName:lang==='el'?'Μητσικώστας':'Mitsikostas',url:pageUrl(lang,'about'),jobTitle:'Software Engineer',email:profile.email,homeLocation:{'@type':'Place',name:'Volos, Greece'},sameAs:socials.map(s=>s.url)},
+ {'@type':'WebSite','@id':`${root}#website`,url:root,name:'MitsikostasTech',inLanguage:['el','en'],publisher:{'@id':personId}},
+ {'@type':page==='about'?'ProfilePage':page==='contact'?'ContactPage':'WebPage','@id':canonical,url:canonical,name:title,description,inLanguage:lang,isPartOf:{'@id':`${root}#website`},...(page==='about'?{mainEntity:{'@id':personId}}:{about:{'@id':personId}})},
+ ...(page==='home'||page==='skills'?[{'@type':'Service',name:lang==='el'?'Κατασκευή ιστοσελίδων και εφαρμογών':'Website and app development',provider:{'@id':personId},areaServed:[{'@type':'City',name:'Volos'},{'@type':'Country',name:'Greece'}],serviceType:['Website design','Web development','Mobile app development','SEO'],url:pageUrl(lang,'skills')}]:[])
+];
+---
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'} />
+<meta name="theme-color" content="#070f1e" />
+<meta name="author" content={profile.name} />
+<link rel="canonical" href={canonical} />
+{!noindex && <><link rel="alternate" hreflang="el" href={pageUrl('el',page)} /><link rel="alternate" hreflang="en" href={pageUrl('en',page)} /><link rel="alternate" hreflang="x-default" href={pageUrl('el',page)} /></>}
+<link rel="icon" href={asset('favicon.ico')} sizes="32x32" />
+<link rel="icon" type="image/png" sizes="96x96" href={asset('icons/icon-96.png')} />
+<link rel="apple-touch-icon" sizes="180x180" href={asset('icons/icon-180.png')} />
+<link rel="manifest" href={asset('site.webmanifest')} />
+<meta property="og:type" content="website" /><meta property="og:site_name" content="MitsikostasTech" />
+<meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:url" content={canonical} />
+<meta property="og:locale" content={lang==='el'?'el_GR':'en_US'} /><meta property="og:locale:alternate" content={lang==='el'?'en_US':'el_GR'} />
+<meta property="og:image" content={shareImage(lang,page)} /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:image:type" content="image/png" /><meta property="og:image:alt" content={title} />
+<meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content={title} /><meta name="twitter:description" content={description} /><meta name="twitter:image" content={shareImage(lang,page)} /><meta name="twitter:image:alt" content={title} />
+{!noindex && <script type="application/ld+json" set:html={JSON.stringify({'@context':'https://schema.org','@graph':graph}).replace(/</g,'\\u003c')} />}

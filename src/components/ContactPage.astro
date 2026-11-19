@@ -1,0 +1,90 @@
+---
+import { profile, socials } from '../data/portfolio';
+import type { Lang } from '../data/i18n';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = (el: string, en: string) => lang === 'el' ? el : en;
+const projectEmail = `mailto:${profile.email}?subject=${encodeURIComponent(t('Ας συζητήσουμε ένα έργο', 'Let’s discuss a project'))}`;
+const services = [
+  { title: t('Μια νέα ιστοσελίδα', 'A new website'), text: t('Παρουσιάστε την επιχείρηση και τις υπηρεσίες σας μέσα από μια σύγχρονη, εύχρηστη ιστοσελίδα.', 'Showcase your business and services with a modern, easy-to-use website.'), icon: 'M3 8h18M6 5h.01M9 5h.01M7 12h10M7 16h6' },
+  { title: t('Μια νέα εφαρμογή', 'A new application'), text: t('Μετατρέψτε μια ιδέα ή μια καθημερινή ανάγκη της επιχείρησής σας σε εφαρμογή web ή mobile.', 'Turn an idea or an everyday business need into a web or mobile application.'), icon: 'm8 9-3 3 3 3m8-6 3 3-3 3m-3-9-2 18' },
+  { title: t('Βελτίωση της εφαρμογής σας', 'Improving your application'), text: t('Ας δούμε πώς η εφαρμογή σας μπορεί να γίνει πιο εύχρηστη και να καλύπτει καλύτερα τις ανάγκες σας.', 'Let’s explore how your application could become easier to use and better meet your needs.'), icon: 'M5 17v-4m7 4V9m7 8V5M3 21h18' },
+];
+---
+<div class="wrap contact-page">
+  <section class="contact-intro">
+    <p class="contact-eyebrow">{t('ΑΣ ΓΝΩΡΙΣΤΟΥΜΕ', 'LET’S CONNECT')}</p>
+    <h1>{t('Έχετε μια ιδέα;', 'Have an idea?')}<br /><em>{t('Ας της δώσουμε μορφή.', 'Let’s bring it to life.')}</em></h1>
+    <p class="contact-lead">{t('Είμαι ο Θανάσης. Βοηθώ επιχειρήσεις και ανθρώπους να δημιουργήσουν ιστοσελίδες και εφαρμογές που εξυπηρετούν πραγματικές ανάγκες. Πείτε μου τι έχετε στο μυαλό σας — δεν χρειάζεται να γνωρίζετε τις τεχνικές λεπτομέρειες.', 'I’m Thanasis. I help businesses and individuals build websites and applications that solve practical problems. Tell me what you have in mind — you don’t need to know the technical details.')}</p>
+  </section>
+  <div class="contact-grid">
+    <section class="message-panel" aria-labelledby="message-title">
+      <span class="mail-art" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><rect x="6" y="14" width="52" height="38" rx="8" stroke="currentColor" stroke-width="2" /><path d="m8 18 24 19 24-19M8 48l15-14m33 14L41 34" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+      <p class="contact-eyebrow">{t('ΑΠΕΥΘΕΙΑΣ ΕΠΙΚΟΙΝΩΝΙΑ', 'GET IN TOUCH DIRECTLY')}</p>
+      <h2 id="message-title">{t('Κάθε καλό έργο ξεκινά με μια συζήτηση.', 'Every good project starts with a conversation.')}</h2>
+      <p>{t('Μια πρώτη ιδέα, μια ερώτηση ή ένα συγκεκριμένο πλάνο — όλα είναι μια καλή αρχή.', 'An early idea, a question, or a detailed plan — any of these is a good place to start.')}</p>
+      <a class="button email-button" href={projectEmail}>{t('Ας συζητήσουμε το έργο σας', 'Let’s discuss your project')}</a>
+      <a class="direct-email" href={`mailto:${profile.email}`}>{profile.email}</a>
+      <span class="email-hint">{t('Το κουμπί ανοίγει την εφαρμογή email σας.', 'The button opens your email app.')}</span>
+    </section>
+    <section class="brief-panel" aria-labelledby="brief-title">
+      <h2 id="brief-title">{t('Τι να γράψετε στο μήνυμά σας', 'What to include in your message')}</h2>
+      <p>{t('Λίγα λόγια αρκούν για να ξεκινήσουμε. Αν τα έχετε ήδη σκεφτεί, βοηθά να αναφέρετε:', 'A short message is enough to get started. If you already have some details in mind, you can include:')}</p>
+      <ul>
+        <li><strong>{t('Την ιδέα και τον στόχο σας', 'Your idea and goal')}</strong><span>{t('Τι θέλετε να δημιουργήσετε και σε ποιους απευθύνεται;', 'What would you like to build, and who is it for?')}</span></li>
+        <li><strong>{t('Τι υπάρχει ήδη', 'What you already have')}</strong><span>{t('Μια υπάρχουσα ιστοσελίδα, υλικό ή παραδείγματα που σας αρέσουν.', 'An existing website, content, or examples you like.')}</span></li>
+        <li><strong>{t('Χρονοδιάγραμμα και προϋπολογισμό', 'Timeline and budget')}</strong><span>{t('Αν υπάρχει προθεσμία ή ένα ενδεικτικό ποσό, μπορείτε να το αναφέρετε.', 'If you have a deadline or a budget in mind, feel free to share it.')}</span></li>
+      </ul>
+      <p class="reassurance">{t('Δεν τα έχετε ξεκαθαρίσει ακόμη; Μπορούμε να τα συζητήσουμε μαζί.', 'Still figuring things out? We can talk them through together.')}</p>
+    </section>
+  </div>
+  <section class="help-section" aria-labelledby="help-title">
+    <h2 id="help-title">{t('Πώς μπορώ να βοηθήσω', 'How I can help')}</h2>
+    <div class="help-grid">{services.map((service, index) => <article class="help-card"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">{index === 0 && <rect x="2" y="2" width="20" height="20" rx="3" />}<path d={service.icon} /></svg></span><h3>{service.title}</h3><p>{service.text}</p></article>)}</div>
+  </section>
+  <section class="career-contact">
+    <div><h2>{t('Αναζητάτε συνεργάτη για την ομάδα σας;', 'Looking for someone to join your team?')}</h2><p>{t('Αν θέλετε να συζητήσουμε μια θέση στην ομάδα σας ή μια συνεργασία, στείλτε μου email ή επικοινωνήστε μαζί μου στο LinkedIn.', 'If you’d like to discuss a role on your team or a collaboration, send me an email or get in touch on LinkedIn.')}</p></div>
+    <a class="linkedin-link" href={socials.find(s => s.label === 'LinkedIn')!.url} target="_blank" rel="noopener noreferrer" aria-label={t('LinkedIn — ανοίγει σε νέα καρτέλα', 'LinkedIn — opens in a new tab')}><span aria-hidden="true">in</span>{t('Βρείτε με στο LinkedIn', 'Connect on LinkedIn')}</a>
+  </section>
+</div>
+<style>
+  .contact-page { padding-block: 72px 64px; }
+  .contact-intro { max-width: 860px; margin-bottom: 42px; }
+  .contact-eyebrow { color: var(--cyan); font: .875rem Consolas, monospace; letter-spacing: .1em; line-height: 1.6; }
+  .contact-intro h1 { font-size: clamp(2.3rem, 4.7vw, 3.75rem); }
+  .contact-lead { color: var(--tone-bdcde1, #bdcde1); font-size: 1.125rem; line-height: 1.9; max-width: 760px; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .message-panel, .brief-panel { padding: 36px; border-radius: 22px; border: 1px solid var(--tone-304d6b, #304d6b); }
+  .message-panel { position: relative; background: radial-gradient(ellipse at 100% 0, var(--tone-15536a60, #15536a60), transparent 70%), linear-gradient(135deg, var(--tone-112940, #112940), var(--tone-0c192c, #0c192c)); }
+  .brief-panel { background: var(--tone-0c182a, #0c182a); }
+  .mail-art { display: grid; place-items: center; width: 80px; height: 80px; margin-bottom: 28px; border: 1px solid var(--tone-37647d, #37647d); border-radius: 22px; color: var(--cyan); background: var(--tone-17364c, #17364c); box-shadow: 0 8px 35px var(--tone-31d2e510, #31d2e510); }
+  .mail-art svg { width: 54px; height: 54px; }
+  .contact-grid h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); line-height: 1.3; letter-spacing: -.025em; }
+  .contact-grid p, .help-card p, .career-contact p { color: var(--muted); font-size: 1rem; line-height: 1.8; }
+  .email-button { margin-block: 12px 16px; font-size: 1rem; line-height: 1.5; text-align: center; }
+  .direct-email { display: block; width: fit-content; color: var(--tone-d3e6fa, #d3e6fa); font-size: 1rem; overflow-wrap: anywhere; text-underline-offset: 5px; }
+  .direct-email:hover { color: var(--cyan); text-decoration: underline; }
+  .email-hint { display: block; margin-top: 12px; color: var(--muted); font-size: .875rem; line-height: 1.6; }
+  .brief-panel ul { list-style: none; padding: 0; margin: 24px 0; }
+  .brief-panel li { padding: 18px 0 18px 18px; border-left: 2px solid var(--tone-345b7b, #345b7b); }
+  .brief-panel li + li { margin-top: 10px; }
+  .brief-panel strong { display: block; font-size: 1rem; margin-bottom: 5px; font-weight: 600; }
+  .brief-panel li span { display: block; color: var(--muted); font-size: .9375rem; line-height: 1.7; }
+  .brief-panel .reassurance { color: var(--tone-a9d9e8, #a9d9e8); margin-bottom: 0; font-size: .9375rem; }
+  .help-section { padding-block: 56px; }
+  .help-section > h2 { font-size: 1.75rem; margin-bottom: 24px; }
+  .help-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .help-card { padding: 26px; border: 1px solid var(--line); border-radius: 16px; background: linear-gradient(135deg, var(--tone-101f35, #101f35), var(--tone-0c182a, #0c182a)); }
+  .service-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; color: var(--cyan); background: var(--tone-173047, #173047); margin-bottom: 22px; }
+  .service-icon svg { width: 24px; height: 24px; }
+  .help-card h3 { font-size: 1.125rem; line-height: 1.5; margin-bottom: 12px; }
+  .help-card p { margin: 0; }
+  .career-contact { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 28px 0 0; border-top: 1px solid var(--line); }
+  .career-contact h2 { font-size: 1.375rem; letter-spacing: -.02em; }
+  .career-contact p { max-width: 680px; margin: 0; }
+  .linkedin-link { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; color: var(--tone-d3e6fa, #d3e6fa); font-size: .9375rem; padding: 12px 16px; border: 1px solid var(--tone-345271, #345271); border-radius: 10px; }
+  .linkedin-link span { display: grid; place-items: center; width: 24px; height: 24px; background: var(--tone-b9d5ef, #b9d5ef); color: var(--tone-0c182a, #0c182a); border-radius: 3px; font: bold 19px Arial, sans-serif; }
+  .linkedin-link:hover { border-color: var(--accent); background: var(--tone-132942, #132942); }
+  @media (max-width: 1050px) { .message-panel, .brief-panel { padding: 28px; } .career-contact { align-items: flex-start; flex-direction: column; gap: 20px; } }
+  @media (max-width: 760px) { .contact-page { padding-block: 42px; } .contact-grid, .help-grid { grid-template-columns: 1fr; } .contact-lead { font-size: 1rem; } .message-panel, .brief-panel { padding: 26px 22px; } .email-button { width: 100%; } .help-section { padding-block: 40px; } }
+</style>

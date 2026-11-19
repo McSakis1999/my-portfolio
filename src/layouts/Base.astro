@@ -1,18 +1,90 @@
 ---
 import '../styles/global.css';
-import { profile, socials } from '../data/portfolio';
+import '../styles/theme.css';
+import SiteFooter from '../components/SiteFooter.astro';
+import SeoHead from '../components/SeoHead.astro';
 import { asset, href, names, labels, type Lang, type Page } from '../data/i18n';
-interface Props { title?: string; description?: string; lang?: Lang; page?: Page; }
-const { lang = 'el', page = 'home', title = labels[lang][page], description = lang === 'el' ? 'Το επαγγελματικό portfolio του Θανάση Μητσικώστα: ανάπτυξη λογισμικού, έργα και εμπειρία.' : 'Thanasis Mitsikostas’s professional portfolio: software engineering, projects, and experience.' } = Astro.props;
+interface Props { title?: string; description?: string; lang?: Lang; page?: Page; noindex?: boolean; }
+const { lang = 'el', page = 'home', title, description, noindex = false } = Astro.props;
 const t = (el: string, en: string) => lang === 'el' ? el : en;
 ---
 <!doctype html>
 <html lang={lang}>
-<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content={description} /><meta name="robots" content="noindex, nofollow" /><link rel="icon" href={asset("favicon.ico")} /><link rel="alternate" hreflang="el" href={href('el', page)} /><link rel="alternate" hreflang="en" href={href('en', page)} /><link rel="alternate" hreflang="x-default" href={href('el', page)} /><title>{title} · {names[lang]}</title></head>
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><SeoHead lang={lang} page={page} title={title} description={description} noindex={noindex} />
+<script is:inline>
+  (() => {
+    let preference;
+    try { preference = localStorage.getItem('portfolio-theme'); } catch {}
+    const apply = (theme) => {
+      document.documentElement.dataset.theme = theme;
+      document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'light' ? '#f7f9fc' : '#070f1e');
+      const button = document.querySelector('.theme-toggle');
+      if (button) {
+        button.setAttribute('aria-pressed', String(theme === 'light'));
+        button.setAttribute('aria-label', theme === 'light' ? button.dataset.darkLabel : button.dataset.lightLabel);
+        button.setAttribute('title', button.getAttribute('aria-label'));
+      }
+    };
+    apply(preference === 'light' ? 'light' : 'dark');
+    document.addEventListener('DOMContentLoaded', () => {
+      apply(document.documentElement.dataset.theme);
+      document.querySelector('.theme-toggle')?.addEventListener('click', () => {
+        preference = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        apply(preference);
+        try { localStorage.setItem('portfolio-theme', preference); } catch {}
+      });
+    });
+  })();
+</script>
+</head>
 <body>
 <a class="skip" href="#main">{t('Μετάβαση στο περιεχόμενο', 'Skip to content')}</a>
-<header class="wrap"><a class="brand" href={href(lang, 'home')} aria-label={t('MitsikostasTech αρχική', 'MitsikostasTech home')}><img src={asset("brand/logo-full.png")} alt="MitsikostasTech" width="1004" height="243" /></a><nav aria-label={t('Κύρια πλοήγηση', 'Main navigation')}>{(['home','projects','experience','skills','about'] as Page[]).map(key => <a href={href(lang,key)} aria-current={page === key ? 'page' : undefined}>{labels[lang][key]}</a>)}</nav><div class="header-actions"><div class="language-switch" role="group" aria-label={t('Γλώσσα', 'Language')}>{(['el','en'] as Lang[]).map(l => <a href={href(l,page)} lang={l} hreflang={l} aria-label={l === 'el' ? 'Ελληνικά' : 'English'} aria-current={lang === l ? 'true' : undefined}>{l === 'el' ? 'ΕΛ' : 'EN'}</a>)}</div><a class="contact" href={href(lang,'contact')}>{t('Ας μιλήσουμε', 'Let’s talk')} ↗</a></div></header>
+
+<!-- Outer shell: full-width border, sticky + glass on desktop -->
+<div class="site-header">
+  <header class="wrap">
+    <a class="brand" href={href(lang, 'home')} aria-label={t('MitsikostasTech αρχική', 'MitsikostasTech home')}><img src={asset("brand/logo-full.png")} alt="MitsikostasTech" width="1004" height="243" /><span class="light-wordmark" aria-hidden="true"><img src={asset("brand/logo.png")} alt="" width="275" height="275" /><span class="brand-name">Mitsikostas<span>Tech</span></span></span></a>
+    <nav aria-label={t('Κύρια πλοήγηση', 'Main navigation')}>
+      {(['home','projects','experience','skills','about'] as Page[]).map((key, i) => (
+        <a href={href(lang, key)} style={`--i:${i}`} aria-current={page === key ? 'page' : undefined}>{labels[lang][key]}</a>
+      ))}
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" aria-label={t('Φωτεινό θέμα', 'Light theme')} aria-pressed="false" data-light-label={t('Ενεργοποίηση φωτεινού θέματος', 'Switch to light theme')} data-dark-label={t('Ενεργοποίηση σκοτεινού θέματος', 'Switch to dark theme')}>
+        <svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+        <svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20.8 13A9 9 0 0 1 11 3.2 9 9 0 1 0 20.8 13Z"/></svg>
+      </button>
+      <div class="language-switch" role="group" aria-label={t('Γλώσσα', 'Language')}>
+        {(['el','en'] as Lang[]).map(l => (
+          <a href={href(l, page)} lang={l} hreflang={l} aria-label={l === 'el' ? 'Ελληνικά' : 'English'} aria-current={lang === l ? 'true' : undefined}>{l === 'el' ? 'ΕΛ' : 'EN'}</a>
+        ))}
+      </div>
+      <a class="contact" href={href(lang, 'contact')}>{t('Ας μιλήσουμε', 'Let’s talk')} <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <div class="scroll-progress" aria-hidden="true"></div>
+</div>
+
 <main id="main"><slot /></main>
-<footer class="wrap"><div class="footer-main"><a class="footer-brand" href={href(lang,'home')} aria-label="MitsikostasTech"><img src={asset("brand/logo.png")} alt="" width="275" height="275" /></a><span>© {new Date().getFullYear()} {names[lang]}</span><a href={`mailto:${profile.email}`}>{profile.email}</a></div><nav class="social-links" aria-label={t('Κοινωνικά δίκτυα', 'Social links')}>{socials.map(s => <a href={s.url} target="_blank" rel="noopener noreferrer">{s.label} ↗</a>)}</nav></footer>
+<SiteFooter lang={lang} page={page} />
+
+<script>
+  const shell = document.querySelector<HTMLElement>('.site-header');
+  const bar = shell?.querySelector<HTMLElement>('.scroll-progress');
+  let ticking = false;
+
+  const update = () => {
+    const y = window.scrollY;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    shell?.classList.toggle('is-scrolled', y > 10);
+    if (bar) bar.style.transform = `scaleX(${max > 0 ? Math.min(y / max, 1) : 0})`;
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+</script>
 </body></html>
 

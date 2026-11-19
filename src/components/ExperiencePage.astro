@@ -1,0 +1,43 @@
+---
+import { career, href, type Lang } from '../data/i18n';
+import '../styles/experience.css';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = (el: string, en: string) => lang === 'el' ? el : en;
+const jobs = career(lang).experience;
+const icons = ['M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z', 'M12 3v17m-4-13h8M4 13c0 5 4 8 8 8s8-3 8-8M2 15l2-2 2 2m12 0 2-2 2 2', 'm8 7-5 5 5 5m8-10 5 5-5 5M14 4l-4 16'];
+---
+<div class="wrap experience-page">
+  <section class="experience-intro">
+    <p class="experience-label">{t('ΕΠΑΓΓΕΛΜΑΤΙΚΗ ΕΜΠΕΙΡΙΑ', 'PROFESSIONAL EXPERIENCE')}</p>
+    <h1>{t('Δημιουργώ λογισμικό.', 'Building software.')}<br /><em>{t('Εξελίσσομαι με την ομάδα.', 'Growing with the team.')}</em></h1>
+    <p>{t('Ξεκίνησα με ιστοσελίδες και εκπαιδευτικές εφαρμογές και σήμερα έχω την ευθύνη ανάπτυξης του frontend σε εφαρμογές για επιχειρήσεις. Σε κάθε έργο, στόχος μου είναι να λύνω πρακτικά προβλήματα και να διευκολύνω όσους το χρησιμοποιούν.', 'I started with websites and educational applications and now lead frontend development for business software. In every project, my goal is to solve practical problems and make the software easier to use.')}</p>
+    <div class="experience-focus"><span>{t('Αρχιτεκτονική frontend', 'Frontend architecture')}</span><span>{t('Ανάπτυξη web και mobile εφαρμογών', 'Web & mobile development')}</span><span>{t('Καθοδήγηση ομάδας', 'Team mentoring')}</span></div>
+  </section>
+  <ol class="career-timeline" aria-label={t('Επαγγελματική πορεία, από την πιο πρόσφατη θέση', 'Career timeline, most recent role first')}>
+    {jobs.map((job, index) => <li class:list={['timeline-row', { 'timeline-current': job.current }]}>
+      <div class="timeline-date"><span class="role-label">{job.current ? t('ΤΡΕΧΩΝ ΡΟΛΟΣ', 'CURRENT ROLE') : t('ΠΡΟΗΓΟΥΜΕΝΟΣ ΡΟΛΟΣ', 'PREVIOUS ROLE')}</span><p>{job.period}</p></div>
+      <span class="timeline-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d={icons[index]} /></svg></span>
+      <article class="timeline-card">
+        <p class="timeline-company">{job.company}</p><h2>{job.role}</h2><p class="timeline-summary">{job.summary}</p>
+        {job.bullets.length > 0 && <ul class="timeline-details">{job.bullets.map(bullet => <li>{bullet}</li>)}</ul>}
+      </article>
+    </li>)}
+  </ol>
+  <section class="experience-education" aria-labelledby="education-title">
+    <p class="experience-label">{t('ΕΚΠΑΙΔΕΥΣΗ & ΓΝΩΣΕΙΣ', 'EDUCATION & LEARNING')}</p>
+    <h2 id="education-title">{t('Σπουδές και κατάρτιση.', 'Education and training.')}</h2>
+    <div class="education-layout">
+      <article class="degree-card"><span class="education-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m2 8 10-5 10 5-10 5-10-5Zm4 2v7c4 3 8 3 12 0v-7m4-2v9" /></svg></span>
+        <p class="degree-date">{t('Σεπτέμβριος 2017 – Ιούνιος 2023', 'September 2017 – June 2023')}</p><h3>{t('Μηχανικών Πληροφορικής', 'Informatics Engineering')}</h3><p class="university">{t('Πανεπιστήμιο Θεσσαλίας', 'University of Thessaly')}</p>
+        <div class="degree-facts"><span>{t('Κατεύθυνση λογισμικού', 'Software specialisation')}</span><span>{t('Βαθμός: 7,4/10', 'Final grade: 7.4/10')}</span><span>240 ECTS</span></div>
+        <p class="degree-thesis">{t('Πτυχιακή εργασία: εφαρμογή Flutter και μαθήματα που παρουσιάζουν βήμα προς βήμα την ανάπτυξή της.', 'Thesis: a Flutter application and lessons explaining its development step by step.')}</p>
+      </article>
+      <div class="learning-cards">
+        <article><span class="learning-symbol" aria-hidden="true">&lt;/&gt;</span><div><p>Google</p><h3>How to Design & Build a Website</h3></div></article>
+        <article><span class="learning-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9" /><ellipse cx="12" cy="12" rx="4" ry="9" /><path d="M3 12h18M5 6h14M5 18h14" /></svg></span><div><p>Michigan · ECPE</p><h3>{t('Πιστοποίηση αγγλικών', 'English proficiency')}</h3></div></article>
+      </div>
+    </div>
+  </section>
+  <section class="experience-next"><div><h2>{t('Ας αξιοποιήσουμε αυτή την εμπειρία.', 'Let’s put this experience to work.')}</h2><p>{t('Για το επόμενο έργο σας ή μια θέση στην ομάδα σας, ας ξεκινήσουμε με μια συζήτηση.', 'For your next project or a role on your team, let’s start with a conversation.')}</p></div><a class="button" href={href(lang, 'contact')}>{t('Ας μιλήσουμε', 'Let’s talk')}</a></section>
+</div>

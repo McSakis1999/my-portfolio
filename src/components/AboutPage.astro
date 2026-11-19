@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets';
+import '../styles/about.css';
+import portrait from '../assets/thanasis-portrait.png';
+import { href, names, type Lang } from '../data/i18n';
+import ContactBanner from './ContactBanner.astro';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = (el: string, en: string) => lang === 'el' ? el : en;
+const ways = [
+  { title: t('Η επιχείρησή σας στο διαδίκτυο', 'Your business online'), text: t('Μια ιστοσελίδα που παρουσιάζει καθαρά ποιοι είστε, τι προσφέρετε και πώς μπορεί ένας πελάτης να επικοινωνήσει μαζί σας.', 'A website that clearly explains who you are, what you offer, and how a customer can get in touch.'), icon: 'M3 8h18M6 5h.01M9 5h.01M7 12h10M7 16h6' },
+  { title: t('Εργαλεία για την καθημερινότητά σας', 'Tools for your everyday work'), text: t('Εφαρμογές για το διαδίκτυο και το κινητό που βοηθούν την ομάδα σας να οργανώνει τις πληροφορίες και την καθημερινή της δουλειά.', 'Web and mobile apps that help your team organise information and manage day-to-day work.'), icon: 'M8 7 3 12l5 5m8-10 5 5-5 5M14 4l-4 16' },
+  { title: t('Βελτίωση της εφαρμογής σας', 'Improving your application'), text: t('Βελτίωση της εμπειρίας χρήσης και ανάπτυξη νέων λειτουργιών, με προσοχή στη δομή και τη συντήρηση του λογισμικού.', 'Improving the user experience and developing new features, with care for the structure and maintainability of the software.'), icon: 'M4 19h16M7 15v-4m5 4V7m5 8V3' },
+];
+---
+<div class="wrap about-page">
+  <section class="about-hero" aria-labelledby="about-title">
+    <div class="about-intro">
+      <p class="about-label">{t('Ο ΑΝΘΡΩΠΟΣ ΠΙΣΩ ΑΠΟ ΤΟ ΛΟΓΙΣΜΙΚΟ', 'THE PERSON BEHIND THE SOFTWARE')}</p>
+      <h1 id="about-title">{t('Γεια σας, είμαι', 'Hi, I’m')}<br /><em>{t('ο Θανάσης.', 'Thanasis.')}</em></h1>
+      <p>{t('Ονομάζομαι Αθανάσιος Μητσικώστας. Ίσως με γνωρίζετε ως Θανάση ή Σάκη Μητσικώστα — είμαι ο άνθρωπος πίσω από το MitsikostasTech, με βάση τον Βόλο.', 'My name is Athanasios Mitsikostas, also known as Thanasis or Sakis Mitsikostas. I’m the person behind MitsikostasTech, based in Volos, Greece.')}</p>
+      <p class="about-lead">{t('Σχεδιάζω ιστοσελίδες και εφαρμογές που κάνουν την καθημερινή σας δουλειά πιο εύκολη.', 'I design websites and applications that make your day-to-day work easier.')}</p>
+      <p>{t('Είμαι μηχανικός λογισμικού και μου αρέσει να βρίσκω πρακτικές λύσεις σε καθημερινά προβλήματα. Είτε ξεκινάτε μια επιχείρηση είτε θέλετε να βελτιώσετε μια εφαρμογή, πρώτα συζητάμε τι χρειάζεστε και ποιοι θα τη χρησιμοποιούν.', 'I’m a software engineer who enjoys finding practical solutions to everyday problems. Whether you’re starting a business or improving an application, we begin by discussing what you need and who will use it.')}</p>
+      <div class="about-actions"><a class="button" href={href(lang, 'contact')}>{t('Ας συζητήσουμε την ιδέα σας', 'Let’s discuss your idea')}</a><a class="work-link" href={href(lang, 'projects')}>{t('Γνωρίστε τη δουλειά μου', 'Explore my work')}</a></div>
+    </div>
+    <figure class="desk-scene">
+      <div class="desk-halo" aria-hidden="true"></div>
+      <div class="floating-code" aria-hidden="true"><span>&lt;hello /&gt;</span><i></i><i></i><i></i></div>
+      <div class="monitor">
+        <div class="monitor-screen">
+          <div class="screen-toolbar" aria-hidden="true"><span class="screen-dots">● ● ●</span><span>meet.thanasis</span><span>✦</span></div>
+          <div class="screen-profile">
+            <div class="portrait-window"><Image src={portrait} alt={t('Πορτρέτο του Θανάση Μητσικώστα', 'Portrait of Thanasis Mitsikostas')} widths={[200, 400]} sizes="160px" width={200} format="webp" loading="eager" /></div>
+            <div class="screen-greeting" aria-hidden="true">{t('Γεια σας!', 'Hello there!')}<span class="cursor">_</span></div>
+            <span class="screen-role">{t('Από την ιδέα στην πράξη.', 'From idea to reality.')}</span>
+          </div>
+        </div>
+        <div class="monitor-chin" aria-hidden="true"><span>&lt;/&gt;</span></div>
+      </div>
+      <div class="monitor-stand" aria-hidden="true"></div>
+      <div class="monitor-foot" aria-hidden="true"></div>
+      <div class="floating-app" aria-hidden="true"><div></div><span></span><span></span><b>✓</b></div>
+      <div class="floating-tag" aria-hidden="true"><span>✦</span> {t('Λύσεις με ουσία', 'Meaningful solutions')}</div>
+      <figcaption><strong>{names[lang]}</strong><span>{t('Μηχανικός λογισμικού', 'Software engineer')}</span></figcaption>
+    </figure>
+  </section>
+  <section class="about-help" aria-labelledby="about-help-title">
+    <p class="about-label">{t('ΑΠΟ ΤΗΝ ΑΝΑΓΚΗ ΣΤΗ ΛΥΣΗ', 'FROM NEED TO SOLUTION')}</p>
+    <h2 id="about-help-title">{t('Πώς μπορώ να σας βοηθήσω', 'How I can help you')}</h2>
+    <div class="about-cards">{ways.map((way, index) => <article><span class="about-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">{index === 0 && <rect x="2" y="2" width="20" height="20" rx="3" />}<path d={way.icon} /></svg></span><h3>{way.title}</h3><p>{way.text}</p></article>)}</div>
+  </section>
+  <section class="about-background" aria-labelledby="background-title">
+    <div><p class="about-label">{t('Η ΕΜΠΕΙΡΙΑ ΜΟΥ ΣΤΗ ΔΙΑΘΕΣΗ ΣΑΣ', 'EXPERIENCE YOU CAN DRAW ON')}</p><h2 id="background-title">{t('Τεχνική γνώση.', 'Technical expertise.')}<br /><em>{t('Προσωπική επικοινωνία.', 'Personal communication.')}</em></h2><p>{t('Από τον Σεπτέμβριο του 2023 είμαι Lead Frontend Developer στην AIPath, με ευθύνη για την αρχιτεκτονική και την ανάπτυξη εφαρμογών web και mobile. Έχω επίσης αναλάβει την καθοδήγηση δύο εκπαιδευόμενων προγραμματιστών.', 'Since September 2023, I’ve been Lead Frontend Developer at AIPath, responsible for the architecture and development of web and mobile applications. Along the way, I’ve also mentored two trainee developers.')}</p><p>{t('Σπούδασα στο Τμήμα Μηχανικών Πληροφορικής του Πανεπιστημίου Θεσσαλίας. Η προηγούμενη εμπειρία μου περιλαμβάνει ιστοσελίδες και backend συστήματα στην BEE GROUP, frontend στο ΚΑΣΜΝ του Πολεμικού Ναυτικού και ευρωπαϊκά έργα ψηφιακής μάθησης.', 'I studied Informatics Engineering at the University of Thessaly. My earlier experience includes websites and backend systems at BEE GROUP, frontend development at the Hellenic Navy’s Systems Automation Centre, and European digital learning projects.')}</p><a class="work-link" href={href(lang, 'experience')}>{t('Δείτε αναλυτικά την εμπειρία μου', 'Explore my experience')}</a></div>
+    <aside class="approach-panel" aria-labelledby="approach-title"><h3 id="approach-title">{t('Πώς προσεγγίζω ένα έργο', 'How I approach a project')}</h3><ul>
+      <li><strong>{t('Πρώτα οι ανάγκες σας', 'Your needs come first')}</strong><p>{t('Ξεκινάμε συζητώντας τι θέλετε να πετύχετε και τι χρειάζονται οι άνθρωποι που θα χρησιμοποιούν την εφαρμογή ή την ιστοσελίδα σας.', 'We start by discussing what you want to achieve and what the people using your website or application need.')}</p></li>
+      <li><strong>{t('Ξεκάθαρη συνεννόηση', 'Clear communication')}</strong><p>{t('Συζητάμε επιλογές και προτεραιότητες σε απλή γλώσσα, χωρίς περιττούς τεχνικούς όρους.', 'We discuss options and priorities in plain language, without unnecessary technical jargon.')}</p></li>
+      <li><strong>{t('Σκέψη για το επόμενο βήμα', 'Thinking ahead')}</strong><p>{t('Δίνω προσοχή στη δομή του λογισμικού, ώστε να μπορεί να συντηρηθεί και να εξελιχθεί.', 'I build software with a clear structure so it is easier to maintain and extend.')}</p></li>
+    </ul></aside>
+  </section>
+</div>
+<ContactBanner lang={lang} />
+
+

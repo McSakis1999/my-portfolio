@@ -1,0 +1,322 @@
+/* Shared light palette. Original colors are retained as dark fallbacks. */
+:root[data-theme="light"] {
+ color-scheme: light;
+ --tone-00000020: #233d5920;
+ --tone-00000025: #233d5925;
+ --tone-00000030: #233d5930;
+ --tone-00000035: #233d5935;
+ --tone-00000040: #233d5940;
+ --tone-00000045: #233d5945;
+ --tone-00000050: #233d5950;
+ --tone-00000066: #233d5966;
+ --tone-00000070: #233d5970;
+ --tone-070f1e: #ffffff;
+ --tone-070f1ec7: #ffffffc7;
+ --tone-07101e: #ffffff;
+ --tone-071426: #ffffff;
+ --tone-080f1c: #ffffff;
+ --tone-091725: #ffffff;
+ --tone-09172560: #ffffff60;
+ --tone-0a1424: #ffffff;
+ --tone-0a1525: #ffffff;
+ --tone-0a1525d9: #ffffffd9;
+ --tone-0a1729: #ffffff;
+ --tone-0b1729: #ffffff;
+ --tone-0b182b: #ffffff;
+ --tone-0b1a2d: #ffffff;
+ --tone-0c182a: #ffffff;
+ --tone-0c192b: #ffffff;
+ --tone-0c192c: #ffffff;
+ --tone-0d192c: #ffffff;
+ --tone-0d1b2e: #ffffff;
+ --tone-0d1c30: #ffffff;
+ --tone-0d1d31: #ffffff;
+ --tone-0e1c30: #ffffff;
+ --tone-0e2035: #ffffff;
+ --tone-101b2b: #ffffff;
+ --tone-101c30: #ffffff;
+ --tone-101f33: #ffffff;
+ --tone-101f35: #ffffff;
+ --tone-102035: #ffffff;
+ --tone-102038: #ffffff;
+ --tone-10223b: #ffffff;
+ --tone-10223b80: #ffffff80;
+ --tone-10233a: #ffffff;
+ --tone-10233aee: #ffffffee;
+ --tone-102742: #eef6ff;
+ --tone-102b32: #ffffff;
+ --tone-112037: #ffffff;
+ --tone-11233a: #ffffff;
+ --tone-11243a: #ffffff;
+ --tone-11243c: #eef6ff;
+ --tone-11263b: #ffffff;
+ --tone-112940: #eef6ff;
+ --tone-112a40: #eef6ff;
+ --tone-112b44: #eef6ff;
+ --tone-12233b: #eef6ff;
+ --tone-12243a: #ffffff;
+ --tone-122a44: #eef6ff;
+ --tone-122b42: #eef6ff;
+ --tone-123d6740: #eef6ff40;
+ --tone-132942: #eef6ff;
+ --tone-132a42: #eef6ff;
+ --tone-132b43: #eef6ff;
+ --tone-132c43: #eef6ff;
+ --tone-132c4355: #eef6ff55;
+ --tone-13474e: #eef6ff;
+ --tone-142e45: #eef6ff;
+ --tone-143346: #eef6ff;
+ --tone-153047: #eef6ff;
+ --tone-15365435: #eef6ff35;
+ --tone-15536a25: #eef6ff25;
+ --tone-15536a40: #eef6ff40;
+ --tone-15536a45: #eef6ff45;
+ --tone-15536a55: #eef6ff55;
+ --tone-15536a60: #eef6ff60;
+ --tone-16263a: #eef6ff;
+ --tone-162b38: #eef6ff;
+ --tone-163951: #eef6ff;
+ --tone-16464e: #eef6ff;
+ --tone-16477645: #b9cadb45;
+ --tone-173047: #eef6ff;
+ --tone-17334a: #eef6ff;
+ --tone-17364c: #eef6ff;
+ --tone-173e4666: #eef6ff66;
+ --tone-18293e: #eef6ff;
+ --tone-182a35: #eef6ff;
+ --tone-183450: #eef6ff;
+ --tone-18364d: #eef6ff;
+ --tone-192d49: #eef6ff;
+ --tone-19334c: #eef6ff;
+ --tone-193453: #eef6ff;
+ --tone-19354b: #eef6ff;
+ --tone-19435b: #eef6ff;
+ --tone-1b2c49: #eef6ff;
+ --tone-1c4053: #eef6ff;
+ --tone-213149: #eef6ff;
+ --tone-213448: #eef6ff;
+ --tone-224463: #c1cdd8;
+ --tone-23657d35: #b3cad335;
+ --tone-242839: #eef6ff;
+ --tone-255185: #aebed0;
+ --tone-26374c: #eef6ff;
+ --tone-263a4e: #eef6ff;
+ --tone-263f5b: #c5cdd7;
+ --tone-268cc21a: #317da61a;
+ --tone-268cc23d: #317da63d;
+ --tone-284967: #bec9d4;
+ --tone-285e85: #aec1ce;
+ --tone-29425f: #c2cbd5;
+ --tone-2a4565: #bfc8d3;
+ --tone-2b465f: #c2cbd4;
+ --tone-2b506c: #bbc8d1;
+ --tone-304b6355: #bfc8d055;
+ --tone-304d6b: #bac4cf;
+ --tone-304d6b80: #bac4cf80;
+ --tone-305f51: #c1d1cc;
+ --tone-315879: #b3c0cc;
+ --tone-31c6d8: #2c9caa;
+ --tone-31d2e5: #28a0af;
+ --tone-31d2e500: #28a0af00;
+ --tone-31d2e50a: #28a0af0a;
+ --tone-31d2e510: #28a0af10;
+ --tone-31d2e51a: #28a0af1a;
+ --tone-31d2e522: #28a0af22;
+ --tone-31d2e540: #28a0af40;
+ --tone-31d2e560: #28a0af60;
+ --tone-31d2e566: #28a0af66;
+ --tone-31d2e570: #28a0af70;
+ --tone-31d2e580: #28a0af80;
+ --tone-33485e: #c1c8d0;
+ --tone-33506b70: #bac4cd70;
+ --tone-33597955: #b2c0cb55;
+ --tone-345073: #b5bfcb;
+ --tone-345271: #b6c1cc;
+ --tone-34527180: #b6c1cc80;
+ --tone-345b7b: #b1bfca;
+ --tone-35597d: #b0bcc9;
+ --tone-365975: #b4c0ca;
+ --tone-36618b: #4b6b8b;
+ --tone-366e9560: #47718f60;
+ --tone-37647d: #517385;
+ --tone-39afc0: #38919e;
+ --tone-3a5a79: #536b83;
+ --tone-3b627a: #537183;
+ --tone-3c536b: #b8c0c9;
+ --tone-3c6583: #506f86;
+ --tone-3c6c80: #527685;
+ --tone-3c7190: #4c738b;
+ --tone-3c9a9b: #478e8f;
+ --tone-3d8395: #4a7f8c;
+ --tone-3da7b3: #3f8e97;
+ --tone-3e6c83: #517485;
+ --tone-3e6e80: #527684;
+ --tone-3e7893: #4b778b;
+ --tone-40351e80: #eef6ff80;
+ --tone-42607e: #556b82;
+ --tone-45617e: #566b80;
+ --tone-46617d: #566b80;
+ --tone-4675a3: #486b8e;
+ --tone-469a9b: #4b8a8b;
+ --tone-47381e80: #eef6ff80;
+ --tone-476888: #536b83;
+ --tone-4778b7: #416695;
+ --tone-48a6b6: #428894;
+ --tone-4a6178: #5a6b7c;
+ --tone-4b779c: #4d6e89;
+ --tone-4f9eff: #00367f;
+ --tone-4f9eff20: #00367f20;
+ --tone-4f9eff26: #00367f26;
+ --tone-4f9eff30: #00367f30;
+ --tone-4f9eff4d: #00367f4d;
+ --tone-4f9eff66: #00367f66;
+ --tone-507aa0: #4d6d89;
+ --tone-51738e: #546e82;
+ --tone-527e9e: #4f7088;
+ --tone-52b8b0: #45918b;
+ --tone-53748f: #556d82;
+ --tone-5683a3: #4e7088;
+ --tone-5687aa: #4c708b;
+ --tone-5789ae: #4a708c;
+ --tone-5b96b2: #4a778c;
+ --tone-63543a: #cbc6bd;
+ --tone-6386ae40: #4f698740;
+ --tone-64b6ee: #094771;
+ --tone-66b6ff: #044077;
+ --tone-66b6ff20: #04407720;
+ --tone-67cbb9: #469183;
+ --tone-69b5ff: #053e75;
+ --tone-6bbde9: #0e4b6c;
+ --tone-6d603d70: #c8c3b770;
+ --tone-6f9bff: #072873;
+ --tone-718bab: #556981;
+ --tone-72634170: #7d725970;
+ --tone-7a9cb350: #566f8050;
+ --tone-89a6c1: #283e52;
+ --tone-89e3d2: #1b5f52;
+ --tone-8ac8ff: #114069;
+ --tone-8ba7c4: #283d53;
+ --tone-91a8c6: #293b51;
+ --tone-91bad7: #234257;
+ --tone-94b2cb: #293f52;
+ --tone-9bb5d4: #283b53;
+ --tone-9bbbdc: #253d56;
+ --tone-9bd5ee: #1e4a5c;
+ --tone-9eb6cf: #2b3d50;
+ --tone-a0efdf: #205b4f;
+ --tone-a2b4ce: #2d3a4e;
+ --tone-a2bdd3: #2b3f50;
+ --tone-a3baff: #1b2c60;
+ --tone-a5e8c5: #24563c;
+ --tone-a9d9e8: #264a55;
+ --tone-accbdc: #2b424f;
+ --tone-afc6db: #2d3e4e;
+ --tone-aff0df: #255649;
+ --tone-b1c3dd: #2d3a4e;
+ --tone-b1c7db: #2d3e4d;
+ --tone-b9cfe2: #2e3e4d;
+ --tone-b9d2e7: #2c3f4e;
+ --tone-b9d5ef: #293e51;
+ --tone-bdcde1: #303c4b;
+ --tone-bed5e8: #2d3f4d;
+ --tone-c4d5e7: #303d4a;
+ --tone-c5d3e5: #313c49;
+ --tone-c5dcee: #2e3f4d;
+ --tone-c8d8f0: #2e3a4c;
+ --tone-c9dfee: #2f404b;
+ --tone-cceaff: #2a4150;
+ --tone-cfbe9e: #50432b;
+ --tone-d2c1a2: #4f422b;
+ --tone-d3e6fa: #2f3d4c;
+ --tone-d4e4f5: #313d4a;
+ --tone-d5e6f5: #313e49;
+ --tone-d6e6ef: #344047;
+ --tone-d6e9fa: #303e4b;
+ --tone-dcecf8: #333f48;
+ --tone-e4cf9e: #574823;
+ --tone-e4f2ff: #333e47;
+ --tone-e8eef8: #373c43;
+ --tone-efce86: #654c16;
+ --tone-efce8615: #654c1615;
+ --tone-f8f9f3: #3f3f3b;
+ --tone-ffffff: #3d3d3d;
+ --tone-ffffff0d: #3d3d3d0d;
+ --tone-ffffff14: #3d3d3d14;
+ --tone-ffffff59: #3d3d3d59;
+ --muted: #50627b;
+ --line: #cfdae7;
+ --accent: #1865ad;
+ --cyan: #087987;
+}
+
+.theme-toggle { display: grid; place-items: center; width: 40px; height: 40px; flex-shrink: 0; padding: 9px; border: 1px solid var(--line); border-radius: 10px; color: var(--accent); background: transparent; cursor: pointer; }
+.theme-toggle:hover { border-color: var(--accent); }
+.theme-toggle:focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
+.theme-toggle svg { width: 20px; height: 20px; }
+.theme-moon, .light-wordmark { display: none; }
+[data-theme="light"] .theme-sun { display: none; }
+[data-theme="light"] .theme-moon { display: block; }
+[data-theme="light"] .brand > img, [data-theme="light"] .footer-logo > img { display: none; }
+[data-theme="light"] .light-wordmark { display: flex; align-items: center; gap: 10px; color: #18314f; font-size: 25px; font-weight: 750; letter-spacing: -.8px; }
+.light-wordmark > span { color: #087987; }
+[data-theme="light"] .language-switch a[aria-current], [data-theme="light"] .language-switch a:hover { color: #18314f; }
+[data-theme="light"] ::selection { background: #c2dfff; color: #18314f; }
+@media (max-width: 760px) { [data-theme="light"] .brand .light-wordmark { font-size: 20px; } .header-actions { gap: 6px; } }
+@media (max-width: 380px) { .brand img { width: 145px; } [data-theme="light"] .brand .light-wordmark { font-size: 18px; } header { column-gap: 10px; } .theme-toggle { width: 36px; height: 36px; padding: 7px; } }
+:root[data-theme="light"] { --tone-070f1e: #ffffff; --tone-e8eef8: #18314f; }
+@media (max-width: 760px) { .desk-halo { inset-inline: 3%; transform: none; } }
+@media (max-width: 760px) { .desk-scene .desk-halo { inset-inline: 8%; transform: none; } }
+/* Art direction for the light theme: white surfaces, blue/teal accents and warm award details. */
+:root[data-theme="light"] {
+  --accent: #1765cf;
+  --cyan: #007c86;
+  --line: #dce7f2;
+  --tone-070f1ec7: #ffffffed;
+  --tone-304d6b: #cddfeb;
+  --tone-345271: #cbdfea;
+  --tone-29425f: #dae6ef;
+  --tone-00000030: #173c6812;
+  --tone-00000040: #173c6818;
+  --tone-00000050: #173c6820;
+  --tone-00000066: #173c6818;
+}
+html[data-theme="light"] body { background: radial-gradient(ellipse 65% 500px at 90% 5%, #dff7f680, transparent), radial-gradient(ellipse 55% 550px at 0 0, #e2edff90, transparent), #fafcff; }
+html[data-theme="light"] .light-wordmark > img { display: block; width: 48px; height: 48px; object-fit: contain; filter: drop-shadow(0 3px 5px #007c8618); }
+html[data-theme="light"] .light-wordmark .brand-name { color: #18314f; font-size: 20px; letter-spacing: -.65px; white-space: nowrap; }
+html[data-theme="light"] .brand-name > span { color: #007c86; }
+html[data-theme="light"] .site-header { background: #ffffffb8; }
+html[data-theme="light"] .site-header.is-scrolled { background: #fffffff0; box-shadow: 0 8px 30px #173c680a; }
+html[data-theme="light"] :is(.button, .contact) { background: linear-gradient(120deg, #1765cf, #087e98); color: #fff; box-shadow: 0 8px 22px #1765cf24; }
+html[data-theme="light"] :is(.button, .contact):hover { background: linear-gradient(120deg, #1255b3, #006a83); }
+html[data-theme="light"] :is(.card, .home-project, .portfolio-project, .capability-card, .technology-card, .timeline-card, .degree-card, .help-card, .about-cards article, .learning-cards article, .brief-panel) { background: #fff; border-color: #dce7f2; box-shadow: 0 8px 30px #18476a08; }
+html[data-theme="light"] :is(.home-foodflow, .foodflow-feature) { background: radial-gradient(ellipse at 100% 0, #d9f6f0, transparent 65%), #fff; border-color: #bfdfd9; box-shadow: 0 14px 40px #176e660d; }
+html[data-theme="light"] :is(.home-award, .award-banner) { background: linear-gradient(100deg, #fff0c7, #fffaf0); border-color: #eed8a0; color: #79520b; }
+html[data-theme="light"] :is(.home-flow-visual, .flow-preview) { background: #fff; border-color: #cee5df; }
+html[data-theme="light"] :is(.home-flow-review, .flow-core) { background: linear-gradient(110deg, #dff7ed, #e4f7f9); color: #176454; border-color: #a7d8c6; }
+html[data-theme="light"] :is(.home-preview-bar, .preview-top) { background: #f1f8fc; border-color: #d8e8f0; }
+html[data-theme="light"] :is(.home-adopto-preview, .project-adopto .app-preview) { background: radial-gradient(ellipse at 80% 20%, #c3ecfc, transparent 70%), linear-gradient(125deg, #edf4ff, #dceafb); }
+html[data-theme="light"] .project-mobile .app-preview { background: linear-gradient(130deg, #f1fae8, #d9f1e6); }
+html[data-theme="light"] .cooling-feature { background: linear-gradient(130deg, #eef6ff, #fff); border-color: #c5ddf1; }
+html[data-theme="light"] :is(.contact-banner, .message-panel, .skills-collaboration, .projects-next, .experience-next) { background: radial-gradient(ellipse at 100% 0, #cbf3ec, transparent 65%), linear-gradient(120deg, #edf4ff, #fff); border-color: #c8dfe9; box-shadow: 0 16px 45px #164d7510; }
+html[data-theme="light"] :is(.expertise-strip, .site-footer) { background: linear-gradient(120deg, #edf4ff, #f0fbf8); border-color: #d2e3ee; }
+html[data-theme="light"] :is(.expertise-icon, .capability-icon, .about-icon, .education-icon, .service-icon, .mail-art) { background: #e3f6f3; border-color: #c3e5e0; color: #007c86; }
+html[data-theme="light"] .capability-card:nth-child(3n + 2) .capability-icon { background: #eeeaff; color: #6350b5; }
+html[data-theme="light"] .capability-card:nth-child(3n) .capability-icon { background: #e7f0ff; color: #1765cf; }
+html[data-theme="light"] .timeline-current .timeline-card { background: linear-gradient(120deg, #edfaf7, #fff); border-color: #9dd9cf; }
+html[data-theme="light"] .visual { background: #fff; border-color: #c8dfea; box-shadow: 0 24px 60px #145b7c12; }
+html[data-theme="light"] .visual-canvas { background: radial-gradient(ellipse at center, #d9f5f4, #edf4ff 65%, #f9fcff); }
+html[data-theme="light"] .logo-core { background: #fff; box-shadow: 0 12px 35px #156a8a18; border-color: #b9dce6; }
+html[data-theme="light"] .node { background: #fffffff2; border-color: #c3dfe8; box-shadow: 0 6px 16px #1748790e; }
+html[data-theme="light"] .theme-toggle { background: #fff; }
+@media (max-width: 760px) {
+  html[data-theme="light"] .light-wordmark { gap: 6px; }
+  html[data-theme="light"] .light-wordmark > img { width: 34px; height: 34px; }
+  html[data-theme="light"] .light-wordmark .brand-name { font-size: 16px; }
+}
+@media (max-width: 380px) {
+  html[data-theme="light"] .light-wordmark > img { width: 27px; height: 30px; }
+  html[data-theme="light"] .light-wordmark .brand-name { font-size: 14px; }
+}
+html[data-theme="light"] .site-footer .footer-logo > img { display: none; }
+html[data-theme="light"] .footer-logo .light-wordmark > img { display: block; width: 48px; height: 48px; max-width: none; object-fit: contain; }
+html[data-theme="light"] .footer-logo .light-wordmark { gap: 10px; }
